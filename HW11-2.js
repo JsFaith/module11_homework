@@ -8,7 +8,7 @@ other = 0;
 
 function getCalc() {
   for (let i=0; i<arr.length; i++) {
-    if (isNaN(arr[i]) == true) {
+    if (typeof arr[i] !== "number" || isNaN(arr[i])) {
       other = other + 1;
     }
     else if (arr[i] === 0) {
@@ -24,3 +24,5 @@ function getCalc() {
 getCalc()
 
 console.log(odd, even, zero, other)
+
+// Есть неточность: неверно учитываются нечисловые значения (other). Чтобы они считались верно, нужно добавить к условию кроме проверки на NaN ещё и проверку с помощью typeof. Выше исправила
